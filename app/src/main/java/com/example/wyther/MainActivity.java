@@ -10,7 +10,16 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,5 +84,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickAbout(MenuItem item) {
         System.out.println("about");
+    }
+
+    public void RequestApi() {
+        String city = findViewById(R.id.editTextCity).toString();
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "https://www.prevision-meteo.ch/services/json/"+ city;
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        System.out.println(response);
+                    }
+                }, error -> System.out.println("Did not work!"));
     }
 }
