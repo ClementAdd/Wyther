@@ -30,7 +30,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.cityView.setText(items.get(position).getCity());
         holder.tempView.setText(items.get(position).getTemp());
         holder.hourView.setText(items.get(position).getHour());
-        holder.imageView.setImageResource(items.get(position).getImage());
+        holder.imageView.setText(items.get(position).getImage());
     }
 
     @Override

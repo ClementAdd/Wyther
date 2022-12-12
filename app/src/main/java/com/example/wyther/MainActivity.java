@@ -9,9 +9,23 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public RecyclerView recyclerView;
+    public SearchView searchView;
+    public List<Item> items = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        recyclerView = findViewById(R.id.recyclerView);
 
         // drawer layout instance to toggle the menu icon to open
         // drawer and back button to close drawer
@@ -42,15 +56,53 @@ public class MainActivity extends AppCompatActivity {
         // to make the Navigation drawer icon always appear on the action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        List<Item> items = new ArrayList<Item>();
-        items.add(new Item("London", "12", "12:00", R.drawable.ic_launcher_background));
-        items.add(new Item("London", "12", "12:00", R.drawable.ic_launcher_background));
-        items.add(new Item("London", "12", "12:00", R.drawable.ic_launcher_background));
-        items.add(new Item("London", "12", "12:00", R.drawable.ic_launcher_background));
-        items.add(new Item("London", "12", "12:00", R.drawable.ic_launcher_background));
+        SearchView simpleSearchView = (SearchView) findViewById(R.id.searchView); // inititate a search view
+        recyclerView = findViewById(R.id.recyclerView);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyAdapter(getApplicationContext(), items));
+        // perform set on query text listener event
+        simpleSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Request Api
+                Api(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // do something when text changes
+                return false;
+            }
+        });
+    }
+
+    private void Api(String _city){
+        String url = "https://www.prevision-meteo.ch/services/json/" + _city;
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                response -> {
+                    try {
+                        JSONObject jObj = new JSONObject(response);
+                        JSONObject jObjCurrent = jObj.getJSONObject("current_condition");
+                        String city = _city.substring(0, 1).toUpperCase() + _city.substring(1).toLowerCase();
+                        String tmp = jObjCurrent.getString("tmp");
+                        String hour = jObjCurrent.getString("hour");
+                        String icon = jObjCurrent.getString("icon");
+
+                        items.add(new Item(city, tmp, hour, icon));
+                        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+                        recyclerView.setAdapter(new MyAdapter(this, items));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+
+        queue.add(stringRequest);
     }
 
     @Override

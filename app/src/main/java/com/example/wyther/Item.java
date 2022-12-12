@@ -2,10 +2,9 @@ package com.example.wyther;
 
 public class Item {
 
-    String city, temp, hour;
-    int image;
+    String city, temp, hour,image;
 
-    public Item(String city, String temp, String hour, int image) {
+    public Item(String city, String temp, String hour, String image) {
         this.city = city;
         this.temp = temp;
         this.hour = hour;
@@ -36,11 +35,11 @@ public class Item {
         this.hour = hour;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }
