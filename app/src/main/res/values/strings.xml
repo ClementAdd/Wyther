@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">Navigation Drawer</string>
+    <string name="app_name">Wyther</string>
+    <string name="_25_c">25°C</string>
+    <string name="toulouse">Toulouse</string>
+    <string name="soleil_img">soleil img</string>
     <!-- to toggle the open close button of the navigation drawer -->
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
