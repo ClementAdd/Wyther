@@ -33,7 +33,7 @@
             android:id="@+id/textCity"
             android:layout_width="150dp"
             android:layout_height="35dp"
-            android:text="Toulouse"
+            android:text="@string/toulouse"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
