@@ -5,31 +5,29 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.SearchView;
 
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
+    public RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        recyclerView = findViewById(R.id.recyclerView);
 
         // drawer layout instance to toggle the menu icon to open
         // drawer and back button to close drawer
@@ -44,10 +42,16 @@ public class MainActivity extends AppCompatActivity {
         // to make the Navigation drawer icon always appear on the action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-    }
+        List<Item> items = new ArrayList<Item>();
+        items.add(new Item("London", "12", "12:00", R.drawable.ic_launcher_background));
+        items.add(new Item("London", "12", "12:00", R.drawable.ic_launcher_background));
+        items.add(new Item("London", "12", "12:00", R.drawable.ic_launcher_background));
+        items.add(new Item("London", "12", "12:00", R.drawable.ic_launcher_background));
+        items.add(new Item("London", "12", "12:00", R.drawable.ic_launcher_background));
 
-    final Context context = this;
-    private Button button;
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new MyAdapter(getApplicationContext(), items));
+    }
 
     @Override
     public void onBackPressed() {
@@ -84,20 +88,5 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickAbout(MenuItem item) {
         System.out.println("about");
-    }
-
-    public void RequestApi() {
-        String city = findViewById(R.id.editTextCity).toString();
-
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://www.prevision-meteo.ch/services/json/"+ city;
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        System.out.println(response);
-                    }
-                }, error -> System.out.println("Did not work!"));
     }
 }
