@@ -6,10 +6,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Button;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -22,24 +21,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // drawer layout instance to toggle the menu icon to open
-        // drawer and back button to close drawer
         drawerLayout = findViewById(R.id.my_drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
 
-        // pass the Open and Close toggle for the drawer layout listener
-        // to toggle the button
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
-        // to make the Navigation drawer icon always appear on the action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setContentView(R.layout.card_main);
     }
-
-    final Context context = this;
-    private Button button;
 
     @Override
     public void onBackPressed() {
@@ -63,18 +54,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickSettings(MenuItem item) {
-        System.out.println("Settings");
+        Intent intent = new Intent(this, Settings.class);
+        //animation
+        startActivity(intent);
     }
 
     public void onClickFiltre(MenuItem item) {
-        System.out.println("filtre");
+        Intent intent = new Intent(this, Filtre.class);
+        startActivity(intent);
     }
 
     public void onClickFav(MenuItem item) {
-        System.out.println("fav");
+        Intent intent = new Intent(this, Favorite.class);
+        startActivity(intent);
+
     }
 
     public void onClickAbout(MenuItem item) {
-        System.out.println("about");
+        Intent intent = new Intent(this, About.class);
+        this.startActivity(intent);
     }
 }
