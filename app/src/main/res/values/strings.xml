@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">Navigation Drawer</string>
-    <!-- to toggle the open close button of the navigation drawer -->
-    <string name="nav_open">Open</string>
-    <string name="nav_close">Close</string>
+    <string name="app_name">Wyther</string>
+    <string name="nav_open">Ouvrir</string>
+    <string name="nav_close">Fermer</string>
+    <string name="unit_temp">Unité de température</string>
+    <string name="c">°Celsius </string>
+    <string name="f">°Fahrenheit </string>
+    <string name="_12h">12h</string>
 </resources>
