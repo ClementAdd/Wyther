@@ -1,12 +1,17 @@
 package com.example.wyther;
 
-import static android.content.Intent.getIntent;
-
-import android.content.Intent;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class About {
 
-    //get the intent
+public class About extends AppCompatActivity {
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.about);
+
+    }
 
 }

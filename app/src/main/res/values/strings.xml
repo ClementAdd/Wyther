@@ -6,6 +6,10 @@
     <string name="c">°Celsius </string>
     <string name="f">°Fahrenheit </string>
     <string name="_12h">12h</string>
+    <string name="clement">Clément Addario</string>
+    <string name="joris">Joris Pader</string>
+    <string name="projet">Projet Météo. \n Dev Mobile 2022–2023 \n Réaliser une application qui affiche la météo a partir de la position GPS et aussi à partir d’une ville saisie.</string>
+
     <string name="_25_c">25°C</string>
     <string name="toulouse">Toulouse</string>
     <string name="soleil_img">soleil img</string>
