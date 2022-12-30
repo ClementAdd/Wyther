@@ -6,6 +6,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -31,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.card_main);
     }
+
+
+// Mettre à jour le widget ici
+
+    AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
+    int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(this, WeatherAppWidgetProvider.class));
+
 
     @Override
     public void onBackPressed() {
