@@ -8,13 +8,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.SearchView;
-import android.widget.TextView;
 
 
 import com.android.volley.Request;
@@ -23,10 +22,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                         String hour = jObjCurrent.getString("hour");
                         String icon = jObjCurrent.getString("icon");
 
-                        items.add(new Item(city, tmp, hour, icon));
+                        items.add(new Item(city, tmp, hour, R.drawable.ic_launcher_foreground));
                         recyclerView.setLayoutManager(new LinearLayoutManager(this));
                         recyclerView.setAdapter(new MyAdapter(this, items));
                     } catch (JSONException e) {

@@ -1,12 +1,15 @@
 package com.example.wyther;
 
+import android.media.Image;
+
 public class Item {
 
-    String city, temp, hour,image;
+    int image;
+    String city, temp, hour;
 
-    public Item(String city, String temp, String hour, String image) {
+    public Item(String city, String tmp, String hour, int image){
         this.city = city;
-        this.temp = temp;
+        this.temp = tmp;
         this.hour = hour;
         this.image = image;
     }
@@ -35,11 +38,11 @@ public class Item {
         this.hour = hour;
     }
 
-    public String getImage() {
+    public int getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(int image) {
         this.image = image;
     }
 }
