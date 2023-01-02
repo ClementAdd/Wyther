@@ -15,8 +15,6 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
-    public DrawerLayout drawerLayout;
-    public ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.card_main);
     }
-
-
-// Mettre à jour le widget ici
-
-    AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
-    int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(this, WeatherAppWidgetProvider.class));
-
+    public DrawerLayout drawerLayout;
+    public ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
     public void onBackPressed() {

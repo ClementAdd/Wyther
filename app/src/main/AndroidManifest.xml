@@ -11,8 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Wyther"
-
         tools:targetApi="31">
+        <receiver
+            android:name=".WytherAppWidget"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/wyther_app_widget_info" />
+        </receiver>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -26,22 +37,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-        <activity android:name="About"/>
-        <activity android:name="Filtre"/>
-        <activity android:name="Favorite"/>
-        <activity android:name="Settings"/>
-
-
-    <receiver android:name=".WeatherAppWidgetProvider"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-        </intent-filter>
-        <meta-data
-            android:name="android.appwidget.provider"
-            android:resource="@xml/widget" />
-    </receiver>
+        <activity android:name=".About" />
+        <activity android:name=".Filtre" />
+        <activity android:name=".Favorite" />
+        <activity android:name=".Settings" />
 
     </application>
 

@@ -13,5 +13,8 @@
     <string name="_25_c">25°C</string>
     <string name="toulouse">Toulouse</string>
     <string name="soleil_img">soleil img</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
 
 </resources>
