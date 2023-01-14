@@ -1,17 +1,15 @@
 package com.example.wyther;
 
-import android.media.Image;
+import android.util.Log;
 
 public class Item {
+    String city, temp, hour, condition_key;
 
-    int image;
-    String city, temp, hour;
-
-    public Item(String city, String tmp, String hour, int image){
+    public Item(String city, String tmp, String hour, String condition_key) {
         this.city = city;
         this.temp = tmp;
         this.hour = hour;
-        this.image = image;
+        this.condition_key = condition_key;
     }
 
     public String getCity() {
@@ -23,7 +21,7 @@ public class Item {
     }
 
     public String getTemp() {
-        return temp;
+        return temp + "°C";
     }
 
     public void setTemp(String temp) {
@@ -38,11 +36,46 @@ public class Item {
         this.hour = hour;
     }
 
-    public int getImage() {
-        return image;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
+    public int getCondition() {
+        Log.d("condition_key", condition_key);
+        switch (condition_key) {
+            case "ensoleille":
+                return R.drawable.ensoleille;
+            case "nuit-nuageuse":
+                return R.drawable.nuitnuageuse;
+            case "nuit-claire":
+                return R.drawable.nuitclaire;
+            case "nuit-bien-degagee":
+                return R.drawable.nuitbiendegagee;
+            case "averses-de-pluie-faible":
+                return R.drawable.aversesdepluiefaible;
+            case "pluie-faible":
+                return R.drawable.pluiefaible;
+                case "couvert-avec-averses":
+                return R.drawable.couvertavecaverses;
+            case "faiblement-nuageux":
+                return R.drawable.faiblementnuageux;
+            case "fortement-nuageux":
+                return R.drawable.fortementnuageux;
+            case "pluie-moderee":
+                return R.drawable.pluiemoderee;
+            case "eclaircies":
+                return R.drawable.eclaircies;
+            case "nuit-legerement-voilee":
+                return R.drawable.nuitlegerementvoilee;
+            case "nuit-avec-averses":
+                return R.drawable.nuitavecaverses;
+            case "ciel-voile":
+                return R.drawable.cielvoile;
+            case "faibles-passages-nuageux":
+                return R.drawable.faiblespassagesnuageux;
+            case "nuit-avec-averses-de-neige-faible":
+                return R.drawable.nuitavecaversesdeneigefaible;
+            case "averses-de-neige-faible":
+                return R.drawable.aversesdeneigefaible;
+            case "null":
+                return R.drawable.ic_launcher_foreground;
+        }
+        return 0;
     }
 }

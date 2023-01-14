@@ -89,9 +89,9 @@ public class MainActivity extends AppCompatActivity {
                         String city = _city.substring(0, 1).toUpperCase() + _city.substring(1).toLowerCase();
                         String tmp = jObjCurrent.getString("tmp");
                         String hour = jObjCurrent.getString("hour");
-                        String icon = jObjCurrent.getString("icon");
+                        String condition_key = jObjCurrent.getString("condition_key");
 
-                        items.add(new Item(city, tmp, hour, R.drawable.ic_launcher_foreground));
+                        items.add(new Item(city, tmp, hour, condition_key));
                         recyclerView.setLayoutManager(new LinearLayoutManager(this));
                         recyclerView.setAdapter(new MyAdapter(this, items));
                     } catch (JSONException e) {
