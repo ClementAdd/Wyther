@@ -21,7 +21,7 @@
 
 [ ] L'utilisation de d’événement améliorant l'ux (pex: swipe). Préciser :
 
-[ ] La réalisation de composant graphique custom (Paint 2D, Calendrier,...) Préciser :
+[x] La réalisation de composant graphique custom (Paint 2D, Calendrier,...) Préciser :
 
 [ ] Les taches en background (codage du démarrage d'un thread)
 
