@@ -3,13 +3,13 @@ package com.example.wyther;
 import android.util.Log;
 
 public class Item {
-    String city, temp, hour, condition_key;
+    String city, temp, hour, key;
 
-    public Item(String city, String tmp, String hour, String condition_key) {
+    public Item(String city, String tmp, String hour, String key) {
         this.city = city;
         this.temp = tmp;
         this.hour = hour;
-        this.condition_key = condition_key;
+        this.key = key;
     }
 
     public String getCity() {
@@ -21,7 +21,7 @@ public class Item {
     }
 
     public String getTemp() {
-        return temp + "°C";
+        return temp;
     }
 
     public void setTemp(String temp) {
@@ -37,8 +37,7 @@ public class Item {
     }
 
     public int getCondition() {
-        Log.d("condition_key", condition_key);
-        switch (condition_key) {
+        switch (key) {
             case "ensoleille":
                 return R.drawable.ensoleille;
             case "nuit-nuageuse":

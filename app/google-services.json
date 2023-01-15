@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "736047775075",
+    "project_id": "wyther-1e1b0",
+    "storage_bucket": "wyther-1e1b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736047775075:android:92da38852ed4bcd4a5e756",
+        "android_client_info": {
+          "package_name": "com.example.wyther"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736047775075-fskcko1crjq8h348c8vs19vr0l44qf22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAJ1K3i9wf4bfWkIrsbuhAez5JpbAbYng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736047775075-fskcko1crjq8h348c8vs19vr0l44qf22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
