@@ -105,19 +105,13 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Failed to add to database", Toast.LENGTH_SHORT).show();
                             }
                         });
-
-
                         recyclerView.setLayoutManager(new LinearLayoutManager(this));
                         recyclerView.setAdapter(new MyAdapter(this, items));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-            }
+                }, error -> {
         });
-
         queue.add(stringRequest);
     }
 
@@ -132,13 +126,12 @@ public class MainActivity extends AppCompatActivity {
                     System.exit(0);
                 }).create().show();
     }
+
     public void GetDataOnStart() {
         databaseReference.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
             @Override
             public void onSuccess(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    //Log.d("TAG", "onSuccess: " + snapshot.child("city").getValue());
-                  //items.add(new Item(snapshot.child("city").getValue().toString(), snapshot.child("temp").getValue().toString(), snapshot.child("hour").getValue().toString(), snapshot.child("condition").getValue().toString()));
                     Api(snapshot.child("city").getValue().toString());
                 }
                 recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
