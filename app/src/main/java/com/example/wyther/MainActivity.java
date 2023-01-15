@@ -138,7 +138,8 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     //Log.d("TAG", "onSuccess: " + snapshot.child("city").getValue());
-                  items.add(new Item(snapshot.child("city").getValue().toString(), snapshot.child("temp").getValue().toString(), snapshot.child("hour").getValue().toString(), snapshot.child("condition").getValue().toString()));
+                  //items.add(new Item(snapshot.child("city").getValue().toString(), snapshot.child("temp").getValue().toString(), snapshot.child("hour").getValue().toString(), snapshot.child("condition").getValue().toString()));
+                    Api(snapshot.child("city").getValue().toString());
                 }
                 recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
                 recyclerView.setAdapter(new MyAdapter(MainActivity.this, items));
