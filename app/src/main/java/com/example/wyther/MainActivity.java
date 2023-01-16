@@ -9,8 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -77,6 +80,12 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        //get shared preferences
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        String unit = preferences.getString("unit", "metric");
+        System.out.println("unit: " + unit);
     }
 
     private void Api(String _city) {
@@ -169,5 +178,14 @@ public class MainActivity extends AppCompatActivity {
     public void onClickAbout(MenuItem item) {
         Intent intent = new Intent(this, About.class);
         this.startActivity(intent);
+    }
+
+    public void onClickHome(MenuItem item) {
+        Intent intent = new Intent(this, MainActivity.class);
+        this.startActivity(intent);
+    }
+
+    public void onClickItem(View view) {
+        System.out.println("CLICKED " );
     }
 }

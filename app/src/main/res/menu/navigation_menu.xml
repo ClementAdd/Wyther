@@ -4,6 +4,12 @@
     tools:ignore="HardcodedText">
 
     <item
+        android:id="@+id/Home"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:onClick="onClickHome"
+        android:title="Accueil" />
+
+    <item
         android:id="@+id/nav_settings"
         android:icon="@android:drawable/ic_menu_preferences"
         android:onClick="onClickSettings"

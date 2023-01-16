@@ -13,7 +13,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="176dp">
+        android:layout_height="176dp"
+        android:clickable="true"
+        android:onClick="onClickItem">
 
         <ImageView
             android:id="@+id/imageView"

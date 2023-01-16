@@ -7,7 +7,7 @@
 
 [ ] Utilisation de Room
 
-[ ] Utilisation de Firebase
+[x] Utilisation de Firebase
 
 [x] Nombre d'activités ou fragment supérieur ou égal à 3
 
@@ -21,7 +21,7 @@
 
 [ ] L'utilisation de d’événement améliorant l'ux (pex: swipe). Préciser :
 
-[x] La réalisation de composant graphique custom (Paint 2D, Calendrier,...) Préciser :
+[x] La réalisation de composant graphique custom (Paint 2D, Calendrier,...) Préciser : Dans à propos -> soleil avec Canvas
 
 [ ] Les taches en background (codage du démarrage d'un thread)
 
