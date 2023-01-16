@@ -71,6 +71,5 @@
         android:layout_gravity="start"
         app:menu="@menu/navigation_menu"></com.google.android.material.navigation.NavigationView>
 
-    <!--    Add navigation menu-->
 
 </androidx.drawerlayout.widget.DrawerLayout>
