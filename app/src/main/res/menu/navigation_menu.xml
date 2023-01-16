@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/Home"
-        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:icon="@android:drawable/ic_menu_more"
         android:onClick="onClickHome"
         android:title="Accueil" />
 
@@ -17,23 +17,20 @@
 
     <item
         android:id="@+id/nav_filtre"
-        android:title="Filtres"
         android:icon="@android:drawable/ic_menu_sort_by_size"
         android:onClick="onClickFiltre"
-        />
+        android:title="Filtres" />
 
     <item
         android:id="@+id/nav_fav"
-        android:title="Favoris"
         android:icon="@android:drawable/btn_star"
         android:onClick="onClickFav"
-        />
+        android:title="Favoris" />
 
     <item
         android:id="@+id/nav_propos"
-        android:title="À propos"
         android:icon="@android:drawable/ic_menu_info_details"
         android:onClick="onClickAbout"
-        />
+        android:title="À propos" />
 
 </menu>
