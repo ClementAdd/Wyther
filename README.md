@@ -1,5 +1,5 @@
 # Liste des fonctionnalités implémentées :
-[ ] Utilisation de l'Api Preference
+[x] Utilisation de l'Api Preference
 
 [ ] Ecriture/lecture dans un Fichier
 
@@ -19,7 +19,7 @@
 
 [x] La pertinence d'utilisation des layouts (L'application doit être responsive et supporter: portrait/paysage et tablette)
 
-[ ] L'utilisation de d’événement améliorant l'ux (pex: swipe). Préciser :
+[x] L'utilisation de d’événement améliorant l'ux (pex: swipe). Préciser : Swipe à droite dans le menu s'ouvre
 
 [x] La réalisation de composant graphique custom (Paint 2D, Calendrier,...) Préciser : Dans à propos -> soleil avec Canvas
 
